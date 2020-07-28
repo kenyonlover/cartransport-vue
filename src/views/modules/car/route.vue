@@ -56,6 +56,15 @@
         label="货品">
       </el-table-column>
       <el-table-column
+        prop="freightPrice"
+        header-align="center"
+        align="center"
+        label="运费单价/元">
+        <template slot-scope="scope">
+          {{scope.row.freightPrice == 0 ? '' : scope.row.freightPrice }}
+        </template>
+      </el-table-column>
+      <el-table-column
         prop="trailerPrice"
         header-align="center"
         align="center"

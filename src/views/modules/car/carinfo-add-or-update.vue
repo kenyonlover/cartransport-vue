@@ -13,6 +13,17 @@
     <el-form-item label="车牌号" prop="carNumber">
       <el-input v-model="dataForm.carNumber" placeholder="车牌号"></el-input>
     </el-form-item>
+    <el-form-item label="车辆性质" prop="carType">
+      <!-- <el-input v-model="dataForm.carType" placeholder="车辆性质"></el-input> -->
+      <el-select v-model="dataForm.carType" clearable placeholder="车辆性质">
+        <el-option
+          v-for="item in carTypeList"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value">
+        </el-option>
+      </el-select>
+    </el-form-item>
     <el-form-item label="备注" prop="note">
       <el-input v-model="dataForm.note" placeholder="备注"></el-input>
     </el-form-item>
@@ -29,11 +40,21 @@
     data () {
       return {
         visible: false,
+        carTypeList: [
+          {
+            value: 1,
+            label: '拖车'
+          },{
+            value: 2,
+            label: '四桥车'
+          }
+        ],
         dataForm: {
           carInfoId: 0,
           carCode: '',
           carName: '',
           carNumber: '',
+          carType: '',
           note: '',
           deleted: ''
         },
@@ -46,6 +67,9 @@
           ],
           carNumber: [
             { required: true, message: '车牌号不能为空', trigger: 'blur' }
+          ],
+          carType: [
+            { required: true, message: '车辆性质不能为空', trigger: 'blur' }
           ],
           note: [
             { required: false, message: '备注不能为空', trigger: 'blur' }
@@ -72,6 +96,7 @@
                 this.dataForm.carCode = data.carInfo.carCode
                 this.dataForm.carName = data.carInfo.carName
                 this.dataForm.carNumber = data.carInfo.carNumber
+                this.dataForm.carType = data.carInfo.carType
                 this.dataForm.note = data.carInfo.note
                 this.dataForm.deleted = data.carInfo.deleted
               }
@@ -91,6 +116,7 @@
                 'carCode': this.dataForm.carCode,
                 'carName': this.dataForm.carName,
                 'carNumber': this.dataForm.carNumber,
+                'carType': this.dataForm.carType,
                 'note': this.dataForm.note,
                 'deleted': this.dataForm.deleted
               })

@@ -50,6 +50,17 @@
         label="车牌号">
       </el-table-column>
       <el-table-column
+        prop="carType"
+        header-align="center"
+        align="center"
+        label="车辆性质">
+        <template slot-scope="scope">
+          {{scope.row.carType == 1 ? '拖车'
+          : scope.row.carType == 2 ? '四桥车'
+          : ''}}
+        </template>
+      </el-table-column>
+      <el-table-column
         prop="note"
         header-align="center"
         align="center"

@@ -16,6 +16,9 @@
     <el-form-item label="货品" prop="goodsName">
       <el-input v-on:click.native="goodsClick" v-model="dataForm.goodsName" placeholder="货品"></el-input>
     </el-form-item>
+    <el-form-item label="运费单价/元" prop="freightPrice">
+      <el-input-number :min="0" v-model="dataForm.freightPrice" :precision="2" :step="0.01"></el-input-number>
+    </el-form-item>
     <el-form-item label="拖车单价/元" prop="trailerPrice">
       <el-input-number :min="0" v-model="dataForm.trailerPrice" :precision="2" :step="0.01"></el-input-number>
     </el-form-item>
@@ -51,6 +54,7 @@
           goodsId: '',
           goodsName: '',
           trailerPrice: '',
+          freightPrice: '',
           fourAxlePrice: '',
           percentage: '',
           note: '',
@@ -68,6 +72,9 @@
           ],
           goodsName: [
             { required: true, message: '货品不能为空', trigger: 'blur' }
+          ],
+          freightPrice: [
+            { required: false, message: '运费单价/元不能为空', trigger: 'blur' }
           ],
           trailerPrice: [
             { required: false, message: '拖车单价/元不能为空', trigger: 'blur' }
@@ -107,6 +114,7 @@
                 this.dataForm.routeName = data.route.routeName
                 this.dataForm.goodsId = data.route.goodsId
                 this.dataForm.goodsName = data.route.goodsName
+                this.dataForm.freightPrice = data.route.freightPrice
                 this.dataForm.trailerPrice = data.route.trailerPrice
                 this.dataForm.fourAxlePrice = data.route.fourAxlePrice
                 this.dataForm.percentage = data.route.percentage
@@ -146,6 +154,7 @@
                 'routeName': this.dataForm.routeName,
                 'goodsId': this.dataForm.goodsId,
                 'goodsName': this.dataForm.goodsName,
+                'freightPrice': this.dataForm.freightPrice,
                 'trailerPrice': this.dataForm.trailerPrice,
                 'fourAxlePrice': this.dataForm.fourAxlePrice,
                 'percentage': this.dataForm.percentage,

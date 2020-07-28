@@ -1,6 +1,6 @@
 <template>
   <el-dialog
-    :title="!dataForm.id ? '新增' : '修改'"
+    :title="!dataForm.carTravelId ? '新增' : '修改'"
     :close-on-click-modal="false"
     :visible.sync="visible"
     width="80%"
@@ -643,6 +643,8 @@ export default {
       this.dataForm.goodsName = data.goodsName;
       this.dataForm.measurementId = data.measurementId;
       this.dataForm.measurementName = data.measurementName;
+      this.dataForm.loadingPoint = '';
+      this.dataForm.loadingPointName = '';
     },
     //选择车辆
     carinfoClick() {

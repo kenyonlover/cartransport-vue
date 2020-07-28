@@ -1,6 +1,6 @@
 <template>
   <el-dialog
-    :title="!dataForm.id ? '新增' : '修改'"
+    :title="'复制'"
     :close-on-click-modal="false"
     :visible.sync="visible"
     width="80%"
@@ -100,15 +100,15 @@
         </el-form-item>
       </el-col>
       <el-col :span="8">
-        <el-form-item label="毛重" @change="weightChange" prop="grossWeight" label-width="30%">
+        <el-form-item label="毛重" prop="grossWeight" label-width="30%">
           <!-- <el-input v-model="dataForm.grossWeight" placeholder="毛重"></el-input> -->
-          <el-input-number v-model="dataForm.grossWeight" :precision="2" :step="0.01"></el-input-number>
+          <el-input-number :min="0" @change="weightChange" v-model="dataForm.grossWeight" :precision="2" :step="0.01"></el-input-number>
         </el-form-item>
       </el-col>
       <el-col :span="8">
-        <el-form-item label="皮重" @change="weightChange" prop="tareWeight" label-width="30%">
+        <el-form-item label="皮重" prop="tareWeight" label-width="30%">
           <!-- <el-input v-model="dataForm.tareWeight" placeholder="皮重"></el-input> -->
-          <el-input-number v-model="dataForm.tareWeight" :precision="2" :step="0.01"></el-input-number>
+          <el-input-number :min="0" @change="weightChange" v-model="dataForm.tareWeight" :precision="2" :step="0.01"></el-input-number>
         </el-form-item>
       </el-col>
       <el-col :span="8">
@@ -644,6 +644,8 @@ export default {
       this.dataForm.goodsName = data.goodsName;
       this.dataForm.measurementId = data.measurementId;
       this.dataForm.measurementName = data.measurementName;
+      this.dataForm.loadingPoint = '';
+      this.dataForm.loadingPointName = '';
     },
     //选择车辆
     carinfoClick() {
