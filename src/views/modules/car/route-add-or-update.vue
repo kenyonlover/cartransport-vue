@@ -19,13 +19,13 @@
     <el-form-item label="运费单价/元" prop="freightPrice">
       <el-input-number :min="0" v-model="dataForm.freightPrice" :precision="2" :step="0.01"></el-input-number>
     </el-form-item>
-    <el-form-item label="拖车单价/元" prop="trailerPrice">
+    <el-form-item label="工资拖车单价/元" prop="trailerPrice">
       <el-input-number :min="0" v-model="dataForm.trailerPrice" :precision="2" :step="0.01"></el-input-number>
     </el-form-item>
-    <el-form-item label="四桥车单价/元" prop="fourAxlePrice">
+    <el-form-item label="工资四桥车单价/元" prop="fourAxlePrice">
       <el-input-number :min="0" v-model="dataForm.fourAxlePrice" :precision="2" :step="0.01"></el-input-number>
     </el-form-item>
-    <el-form-item label="提成比例(%)" prop="percentage">
+    <el-form-item label="工资提成比例(%)" prop="percentage">
       <el-input-number :min="0" v-model="dataForm.percentage" :precision="2" :step="0.01"></el-input-number>
     </el-form-item>
     <el-form-item label="备注" prop="note">

@@ -68,7 +68,7 @@
         prop="trailerPrice"
         header-align="center"
         align="center"
-        label="拖车单价/元">
+        label="工资拖车单价/元">
         <template slot-scope="scope">
           {{scope.row.trailerPrice == 0 ? '' : scope.row.trailerPrice }}
         </template>
@@ -77,7 +77,7 @@
         prop="fourAxlePrice"
         header-align="center"
         align="center"
-        label="四桥车单价/元">
+        label="工资四桥车单价/元">
         <template slot-scope="scope">
           {{scope.row.fourAxlePrice == 0 ? '' : scope.row.fourAxlePrice }}
         </template>
@@ -86,7 +86,7 @@
         prop="percentage"
         header-align="center"
         align="center"
-        label="提成比例(%)">
+        label="工资提成比例(%)">
         <template slot-scope="scope">
           {{scope.row.percentage == 0 ? '' : scope.row.percentage }}
         </template>
