@@ -1,5 +1,5 @@
 <template>
-  <el-dialog :title="'驾驶员'" :close-on-click-modal="false" :visible.sync="visible" append-to-body>
+  <el-dialog :title="'车牌'" :close-on-click-modal="false" :visible.sync="visible" append-to-body>
     <el-table
       ref="singleTable"
       :data="tableData"
@@ -8,16 +8,16 @@
       style="width: 100%"
       height="350"
     >
-      <!-- <el-table-column type="index" width="50"></el-table-column> -->
       <el-table-column
         type="selection"
         header-align="center"
         align="center"
         width="50">
       </el-table-column>
-      <el-table-column property="username" label="用户名"></el-table-column>
-      <el-table-column property="nickname" label="昵称"></el-table-column>
-      <el-table-column property="mobile" label="手机号"></el-table-column>
+      <el-table-column property="carCode" label="车辆编码" width="180%"></el-table-column>
+      <el-table-column property="carName" label="车辆名称" width="180%"></el-table-column>
+      <el-table-column property="carNumber" label="车牌号"></el-table-column>
+      <el-table-column property="note" label="备注"></el-table-column>
     </el-table>
 
     <span slot="footer" class="dialog-footer">
@@ -44,7 +44,7 @@ export default {
       this.visible = true;
       this.$nextTick(() => {
         this.$http({
-          url: this.$http.adornUrl(`/sys/user/allDriver`),
+          url: this.$http.adornUrl(`/car/carinfo/allSlt`),
           method: 'get',
           params: this.$http.adornParams()
         }).then(({ data }) => {
@@ -61,19 +61,15 @@ export default {
       this.visible = false;
     },
     sure() {
-      // if(this.dataListSelections.length === 0){
-      //   this.$message.error('必须选择数据才能确定');
-      //   return
-      // }
       this.selectIds = this.dataListSelections.map(item => {
-        return item.userId
+        return item.carInfoId
       })
       this.selectNames = this.dataListSelections.map(item => {
-        return item.nickname
+        return item.carNumber
       })
       let respMap = {};
-      respMap.driverIds = this.selectIds;
-      respMap.driverNames = this.selectNames;
+      respMap.carIds = this.selectIds;
+      respMap.carNames = this.selectNames;
       this.$emit('func', respMap);
       this.cancle();
     },

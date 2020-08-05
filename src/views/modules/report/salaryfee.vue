@@ -2,7 +2,7 @@
   <div class="mod-config">
     <el-form :inline="true" :model="dataForm" @keyup.enter.native="getDataList()">
       <el-form-item>
-        <el-input v-model="dataForm.qDriverId" placeholder="驾驶员" clearable></el-input>
+        <el-input v-on:click.native="driverClick" v-model="dataForm.driverName" placeholder="驾驶员" clearable></el-input>
       </el-form-item>
       <el-form-item>
         <el-date-picker
@@ -170,13 +170,16 @@
       :total="totalPage"
       layout="total, sizes, prev, pager, next, jumper">
     </el-pagination> -->
+    <driver v-if="driverVisible" ref="driver" @func="getDriverFromDialog"></driver>
   </div>
 </template>
 
 <script>
+  import driver from "./driver-select";
   export default {
     data () {
       return {
+        driverVisible: false,
         pickerOptions: {
           shortcuts: [
             {
@@ -210,6 +213,7 @@
         },
         dataForm: {
           qDriverId: '',
+          driverName: '',
           qQueryDate: ''
         },
         dataList: [],
@@ -219,13 +223,15 @@
         dataListLoading: false
       }
     },
+    components: {
+      driver
+    },
     // activated () {
     //   this.getDataList()
     // },
     methods: {
       // 获取数据列表
       getDataList () {
-        console.log('this.dataForm.qQueryDate===>>>',this.dataForm.qQueryDate)
         if(this.dataForm.qQueryDate == null || this.dataForm.qQueryDate == ''){
           this.$message.error('开始日期、结束日期不能为空');
           return
@@ -263,6 +269,18 @@
       currentChangeHandle (val) {
         this.pageIndex = val
         this.getDataList()
+      },
+      //选择驾驶员
+      driverClick() {
+        this.driverVisible = true;
+        this.$nextTick(() => {
+          this.$refs.driver.init();
+        });
+      },
+      //驾驶员选择返回值
+      getDriverFromDialog(data) {
+        this.dataForm.qDriverId = data.driverIds.join(',');
+        this.dataForm.driverName = data.driverNames.join(',');
       }
     }
   }
