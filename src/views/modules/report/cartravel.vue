@@ -284,9 +284,9 @@ export default {
     };
   },
   components: {},
-  activated() {
-    this.getDataList();
-  },
+  // activated() {
+  //   this.getDataList();
+  // },
   methods: {
     // 获取数据列表
     getDataList() {
