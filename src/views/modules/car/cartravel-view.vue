@@ -10,6 +10,7 @@
       :rules="dataRule"
       ref="dataForm"
       label-width="80px"
+      style="height:600px"
     >
       <el-col :span="8">
         <el-form-item label="运输编码" prop="carTravelCode" label-width="30%">

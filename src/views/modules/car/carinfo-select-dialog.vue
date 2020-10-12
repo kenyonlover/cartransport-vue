@@ -1,5 +1,15 @@
 <template>
   <el-dialog :title="'车牌'" :close-on-click-modal="false" :visible.sync="visible" append-to-body>
+
+    <el-form :inline="true" :model="dataForm" @keyup.enter.native="getDataList()">
+      <el-form-item>
+        <el-input v-model="dataForm.carnum" placeholder="车牌号" clearable></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button @click="getDataList()">查询</el-button>
+      </el-form-item>
+    </el-form>
+
     <el-table
       ref="singleTable"
       :data="tableData"
@@ -27,6 +37,9 @@
 export default {
   data() {
     return {
+      dataForm: {
+        carnum: ''
+      },
       visible: false,
       tableData: [],
       currentRow: null
@@ -64,6 +77,23 @@ export default {
     handleRowDblclick(row){
       this.currentRow = row;
       this.sure();
+    },
+    // 获取数据列表
+    getDataList () {
+      this.visible = true
+      this.$http({
+        url: this.$http.adornUrl('/car/carinfo/querySlt'),
+        method: 'get',
+        params: this.$http.adornParams({
+          'carnum': this.dataForm.carnum
+        })
+      }).then(({data}) => {
+        if (data && data.code === 0) {
+          this.tableData = data.list;
+        } else {
+          this.tableData = []
+        }
+      })
     }
   }
 };

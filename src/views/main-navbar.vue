@@ -67,7 +67,11 @@
         set (val) { this.$store.commit('common/updateMainTabs', val) }
       },
       userName: {
-        get () { return this.$store.state.user.name }
+        // get () { return this.$store.state.user.name }
+        get () {
+          console.log("user",this.$store.state.user);
+          return this.$store.state.user.name
+        }
       }
     },
     methods: {

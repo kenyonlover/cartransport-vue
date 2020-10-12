@@ -7,7 +7,7 @@
       <el-form-item>
         <el-button @click="getDataList()">查询</el-button>
         <el-button v-if="isAuth('expend:expendtype:save')" type="primary" @click="addOrUpdateHandle()">新增</el-button>
-        <el-button v-if="isAuth('expend:expendtype:delete')" type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button>
+        <!-- <el-button v-if="isAuth('expend:expendtype:delete')" type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button> -->
       </el-form-item>
     </el-form>
     <el-table
@@ -54,7 +54,7 @@
         label="操作">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="addOrUpdateHandle(scope.row.expendTypeId)">修改</el-button>
-          <el-button type="text" size="small" @click="deleteHandle(scope.row.expendTypeId)">删除</el-button>
+          <!-- <el-button type="text" size="small" @click="deleteHandle(scope.row.expendTypeId)">删除</el-button> -->
         </template>
       </el-table-column>
     </el-table>
