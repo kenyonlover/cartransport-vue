@@ -29,7 +29,6 @@
       :data="dataList"
       border
       v-loading="dataListLoading"
-      @selection-change="selectionChangeHandle"
       style="width: 100%;"
     >
       <el-table-column type="index" width="50"></el-table-column>
@@ -214,7 +213,6 @@ export default {
     },
     //貨品选择返回值
     getGoodsSltFromDialog(data) {
-      console.log("返回data", data);
       this.dataForm.goodsId = data.goodsId;
       this.dataForm.goodsName = data.goodsName;
     },
