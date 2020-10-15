@@ -335,22 +335,22 @@ export default {
           { required: false, message: "运输编码不能为空", trigger: "blur" }
         ],
         shipperId: [
-          { required: true, message: "发货方_ID不能为空", trigger: "blur" }
+          { required: false, message: "发货方_ID不能为空", trigger: "blur" }
         ],
         shipperName: [
-          { required: true, message: "发货方不能为空", trigger: "blur" }
+          { required: false, message: "发货方不能为空", trigger: "blur" }
         ],
         receiverId: [
-          { required: true, message: "收货方_ID不能为空", trigger: "blur" }
+          { required: false, message: "收货方_ID不能为空", trigger: "blur" }
         ],
         receiverName: [
-          { required: true, message: "收货方不能为空", trigger: "blur" }
+          { required: false, message: "收货方不能为空", trigger: "blur" }
         ],
         carrierId: [
-          { required: true, message: "承运单位_ID不能为空", trigger: "blur" }
+          { required: false, message: "承运单位_ID不能为空", trigger: "blur" }
         ],
         carrierName: [
-          { required: true, message: "承运单位不能为空", trigger: "blur" }
+          { required: false, message: "承运单位不能为空", trigger: "blur" }
         ],
         goodsId: [
           { required: true, message: "货品_ID不能为空", trigger: "blur" }
