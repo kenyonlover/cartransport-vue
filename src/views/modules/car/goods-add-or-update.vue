@@ -66,7 +66,7 @@ export default {
           { required: false, message: "计量单位_ID不能为空", trigger: "blur" }
         ],
         measurementName: [
-          { required: true, message: "计量单位不能为空", trigger: "blur" }
+          { required: true, message: "计量单位不能为空", trigger: "change" }
         ],
         note: [{ required: false, message: "备注不能为空", trigger: "blur" }]
       }

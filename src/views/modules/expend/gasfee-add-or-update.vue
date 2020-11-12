@@ -101,13 +101,13 @@ export default {
           { required: false, message: "编码不能为空", trigger: "blur" }
         ],
         carId: [{ required: true, message: "车辆ID不能为空", trigger: "blur" }],
-        carNum: [{ required: true, message: "车辆不能为空", trigger: "blur" }],
+        carNum: [{ required: true, message: "车辆不能为空", trigger: "change" }],
         gasDate: [{ required: true, message: "日期不能为空", trigger: "blur" }],
         gasCardId: [
           { required: true, message: "加油卡ID不能为空", trigger: "blur" }
         ],
         gasCardName: [
-          { required: true, message: "加油卡不能为空", trigger: "blur" }
+          { required: true, message: "加油卡不能为空", trigger: "change" }
         ],
         litre: [{ required: true, message: "升不能为空", trigger: "blur" }],
         price: [{ required: true, message: "单价不能为空", trigger: "blur" }],

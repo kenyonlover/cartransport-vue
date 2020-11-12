@@ -87,12 +87,12 @@ export default {
           { required: false, message: "编码不能为空", trigger: "blur" }
         ],
         carId: [{ required: true, message: "车辆ID不能为空", trigger: "blur" }],
-        carNum: [{ required: true, message: "车辆不能为空", trigger: "blur" }],
+        carNum: [{ required: true, message: "车辆不能为空", trigger: "change" }],
         expendTypeId: [
           { required: true, message: "支出类型ID不能为空", trigger: "blur" }
         ],
         expendTypeName: [
-          { required: true, message: "支出类型不能为空", trigger: "blur" }
+          { required: true, message: "支出类型不能为空", trigger: "change" }
         ],
         detailed: [
           { required: false, message: "明细不能为空", trigger: "blur" }

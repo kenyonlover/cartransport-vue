@@ -62,12 +62,13 @@
       v-loading="dataListLoading"
       @selection-change="selectionChangeHandle"
       style="width: 100%;">
-      <el-table-column
+      <el-table-column type="index" width="50"></el-table-column>
+      <!-- <el-table-column
         type="selection"
         header-align="center"
         align="center"
         width="50">
-      </el-table-column>
+      </el-table-column> -->
       <!-- <el-table-column
         prop="carTravelId"
         header-align="center"

@@ -356,19 +356,19 @@ export default {
           { required: true, message: "货品_ID不能为空", trigger: "blur" }
         ],
         goodsName: [
-          { required: true, message: "货品不能为空", trigger: "blur" }
+          { required: true, message: "货品不能为空", trigger: "change" }
         ],
         carInfoId: [
           { required: true, message: "车牌_ID不能为空", trigger: "blur" }
         ],
         carInfoName: [
-          { required: true, message: "车牌不能为空", trigger: "blur" }
+          { required: true, message: "车牌不能为空", trigger: "change" }
         ],
         driverId: [
           { required: true, message: "驾驶员_ID不能为空", trigger: "blur" }
         ],
         driverName: [
-          { required: true, message: "驾驶员不能为空", trigger: "blur" }
+          { required: true, message: "驾驶员不能为空", trigger: "change" }
         ],
         receiveDate: [
           { required: true, message: "收货日期不能为空", trigger: "blur" }
@@ -386,7 +386,7 @@ export default {
           { required: true, message: "计量单位_ID不能为空", trigger: "blur" }
         ],
         measurementName: [
-          { required: true, message: "计量单位不能为空", trigger: "blur" }
+          { required: true, message: "计量单位不能为空", trigger: "change" }
         ],
         deliveryDate: [
           { required: true, message: "发货方日期不能为空", trigger: "blur" }
@@ -398,7 +398,7 @@ export default {
           { required: true, message: "路线_ID不能为空", trigger: "blur" }
         ],
         loadingPointName: [
-          { required: true, message: "路线不能为空", trigger: "blur" }
+          { required: true, message: "路线不能为空", trigger: "change" }
         ],
         dischargePoint: [
           { required: false, message: "卸货点不能为空", trigger: "blur" }

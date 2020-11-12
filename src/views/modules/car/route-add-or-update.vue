@@ -71,7 +71,7 @@
             { required: false, message: '货品_ID不能为空', trigger: 'blur' }
           ],
           goodsName: [
-            { required: true, message: '货品不能为空', trigger: 'blur' }
+            { required: true, message: '货品不能为空', trigger: 'change' }
           ],
           freightPrice: [
             { required: false, message: '运费单价/元不能为空', trigger: 'blur' }
